@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyUnitTestPracticeApp</string>
+    <string name="add">Add</string>
+    <string name="price_per_item">Price per Item</string>
+    <string name="amount">Amount</string>
+    <string name="name">Name</string>
 </resources>
