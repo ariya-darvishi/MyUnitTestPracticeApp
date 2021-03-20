@@ -3,8 +3,11 @@ package com.example.myunittestpracticeapp.di
 import android.content.Context
 import android.provider.DocumentsContract
 import androidx.room.Room
+import com.example.myunittestpracticeapp.data.local.ShoppingDao
 import com.example.myunittestpracticeapp.data.local.ShoppingItemDatabase
 import com.example.myunittestpracticeapp.data.remote.PixabayApi
+import com.example.myunittestpracticeapp.repositories.DefaultShoppingRepository
+import com.example.myunittestpracticeapp.repositories.ShoppingRepository
 import com.example.myunittestpracticeapp.util.Constants.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
@@ -45,5 +48,10 @@ object AppModule {
         .build()
         .create(PixabayApi::class.java)
 
-
+    @Singleton
+    @Provides
+    fun provideDefaultShoppingRepository(
+        dao: ShoppingDao,
+        api: PixabayApi
+    ) = DefaultShoppingRepository(dao, api) as ShoppingRepository
 }
