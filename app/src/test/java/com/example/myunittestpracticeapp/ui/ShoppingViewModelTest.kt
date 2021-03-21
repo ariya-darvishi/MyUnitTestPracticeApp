@@ -7,11 +7,12 @@ import com.example.myunittestpracticeapp.repositories.FakeShoppingRepository
 import com.example.myunittestpracticeapp.util.Constants
 import com.example.myunittestpracticeapp.util.Status
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-
+@ExperimentalCoroutinesApi
 class ShoppingViewModelTest {
 
     @get:Rule
