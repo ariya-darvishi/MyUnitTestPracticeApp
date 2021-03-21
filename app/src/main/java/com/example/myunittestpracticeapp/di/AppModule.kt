@@ -31,7 +31,7 @@ object AppModule {
         context,
         ShoppingItemDatabase::class.java,
         DATABASE_NAME
-    )
+    ).build()
 
 
     @Singleton
