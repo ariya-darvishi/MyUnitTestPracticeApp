@@ -1,6 +1,7 @@
 package com.example.myunittestpracticeapp.ui
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.example.myunittestpracticeapp.MainCoroutineRule
 import com.example.myunittestpracticeapp.getOrAwaitValueTest
 import com.example.myunittestpracticeapp.repositories.FakeShoppingRepository
 import com.example.myunittestpracticeapp.util.Constants
@@ -15,6 +16,10 @@ class ShoppingViewModelTest {
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
+
+
+    @get:Rule
+    var mainCoroutineRule = MainCoroutineRule()
 
 
     lateinit var viewModel: ShoppingViewModel
