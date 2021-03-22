@@ -8,6 +8,7 @@ import com.example.myunittestpracticeapp.data.local.ShoppingItemDatabase
 import com.example.myunittestpracticeapp.data.remote.PixabayApi
 import com.example.myunittestpracticeapp.repositories.DefaultShoppingRepository
 import com.example.myunittestpracticeapp.repositories.ShoppingRepository
+import com.example.myunittestpracticeapp.util.Constants.BASE_URL
 import com.example.myunittestpracticeapp.util.Constants.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
@@ -44,7 +45,7 @@ object AppModule {
     @Provides
     fun providesPixabayApi() : PixabayApi = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl("BASE_URL")
+        .baseUrl(BASE_URL)
         .build()
         .create(PixabayApi::class.java)
 
