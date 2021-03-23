@@ -3,6 +3,9 @@ package com.example.myunittestpracticeapp.di
 import android.content.Context
 import android.provider.DocumentsContract
 import androidx.room.Room
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.example.myunittestpracticeapp.R
 import com.example.myunittestpracticeapp.data.local.ShoppingDao
 import com.example.myunittestpracticeapp.data.local.ShoppingItemDatabase
 import com.example.myunittestpracticeapp.data.remote.PixabayApi
@@ -34,6 +37,15 @@ object AppModule {
         DATABASE_NAME
     ).build()
 
+    @Singleton
+    @Provides
+    fun provideGlideInstance(
+        @ApplicationContext context: Context
+    ) = Glide.with(context).setDefaultRequestOptions(
+        RequestOptions()
+            .placeholder(R.drawable.ic_image)
+            .error(R.drawable.ic_image)
+    )
 
     @Singleton
     @Provides
@@ -43,7 +55,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun providesPixabayApi() : PixabayApi = Retrofit.Builder()
+    fun providesPixabayApi(): PixabayApi = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(BASE_URL)
         .build()
